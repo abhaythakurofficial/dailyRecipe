@@ -1,0 +1,31 @@
+{% extends "food/basic.html" %}
+
+{% load static %}
+
+{% block title %}Home - Food Website{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Food Website</h1>
+    <p>This is the home page with its own styling.</p>
+
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="foodImage" class="form-label">Food image</label>
+                <input type="file"  name="food_img" class="form-control" id="foodImage" accept="image/*">
+            </div>
+            <div class="mb-3">
+                <label for="foodName" class="form-label">Food Name</label>
+                <input type="text" value="{{recipe.name}}" name="food_name" class="form-control" id="foodName" placeholder="Enter food name">
+            </div>
+            <button type="submit" class="btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <div class="some-need"></div>
+{% endblock %}

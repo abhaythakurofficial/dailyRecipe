@@ -1,0 +1,63 @@
+{% extends "food/basic.html" %}
+
+{% load static %}
+
+{% block title %}Home - Food Website{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Food Website</h1>
+    <p>This is the home page with its own styling.</p>
+
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="foodImage" class="form-label">Food image</label>
+                <input type="file" name="food_img" class="form-control" id="foodImage" accept="image/*">
+            </div>
+            <div class="mb-3">
+                <label for="foodName" class="form-label">Food Name</label>
+                <input type="text" name="food_name" class="form-control" id="foodName" placeholder="Enter food name">
+            </div>
+            <button type="submit" class="btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </nav>
+
+    <h1>4-Column Table Example</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Food</th>
+            <th scope="col">Name</th>
+            <th scope="col">CRUD</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          {% for recipe in recipe %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td><img src="/media/{{ recipe.image }}" alt="Food Image"></td>
+            <td>{{ recipe.name }}</td>
+            <td>
+                <a href="/update_recipe/{{recipe.id}}" ><button type="button" class="btn btn-success">Update</button></a>
+                <a href="/delete_recipe/{{recipe.id}}/"> <button type="button" class="btn btn-danger">Delete</button></a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    <div class="some-need"></div>
+{% endblock %}

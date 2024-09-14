@@ -1,0 +1,66 @@
+{% extends "food/basic.html" %}
+{% load static %}
+
+{% block title %}dailyRecipe.in{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock extra_css %}
+
+{% block body %}
+    <figure class="figure display">
+        <div class="figure-container">
+            <img src="{% static 'header_food_img_1.jpg' %}" class="figure-img" alt="...">
+        </div>
+        <figcaption class="figure-caption text-end">You can share here what you eat today.</figcaption>
+    </figure>
+
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            {% for recipe in recipe %}
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card h-100">
+                        <img src="/media/{{ recipe.image }}" class="card-img-top" alt="food_images">
+                        <div class="card-body">
+                            <p class="card-text">{{ recipe.name }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center text-md-left">
+                    <h5 class="footer-title">About Us</h5>
+                    <p class="footer-text">Delicious recipes and food inspiration to spice up your meals. Discover new dishes and cooking tips.</p>
+                </div>
+                <div class="col-md-4 text-center text-md-left">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/">Recipes</a></li>
+                        <li><a href="/">About</a></li>
+                        <li><a href="/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-center text-md-left">
+                    <h5 class="footer-title">Contact Us</h5>
+                    <p class="footer-text">Email: abhay@dailyrecipe.com</p>
+                    <p class="footer-text">Phone: +123 456 7890</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <p class="footer-copy">&copy; 2024 DailyRecipe. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+{% endblock body %}

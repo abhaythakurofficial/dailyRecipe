@@ -1,0 +1,44 @@
+{% extends "food/basic.html" %}
+
+{% load static %}
+
+{% block title %}Register - Food Website{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/yourstylesheet.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+                <h1>Register here first</h1>
+                
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                
+                <div class="form-group mb-3">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input name="user_email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  autocomplete="off">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input name="user_password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" autocomplete="new-password">
+                </div>
+                
+                <p>Already have an account? Go for <a href="/login/">Login</a></p>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

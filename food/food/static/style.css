@@ -1,0 +1,105 @@
+.display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+}
+
+hr {
+    width: 90vw;
+    border: 1px solid black;
+}
+
+.card-img-top {
+    width: 100%; /* Make the image fill the card width */
+    height: auto; /* Maintain aspect ratio */
+    aspect-ratio: 1 / 1; /* Ensure the image is square */
+    object-fit: cover; /* Crop image if needed to maintain aspect ratio */
+}
+
+/* Ensure the card body adjusts to the content */
+.card-body {
+    height: auto;
+    padding: 10px; /* Adjust padding if needed */
+}
+
+.card-text {
+    font-size: 1.5vw; /* Default font size */
+}
+
+/* Media query for screens smaller than 1200px */
+@media screen and (max-width: 1200px) {
+    .card-text {
+        font-size: 2vw; /* Increase font size for medium screens */
+    }
+}
+
+/* Media query for screens smaller than 800px */
+@media screen and (max-width: 800px) {
+    .card-text {
+        font-size: 3vw; /* Increase font size for smaller screens */
+    }
+}
+
+/* Media query for screens smaller than 500px */
+@media screen and (max-width: 500px) {
+    .card-text {
+        font-size: 4vw; /* Increase font size for very small screens */
+    }
+}
+.footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    color: #212529;
+}
+
+.footer-title {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+.footer-text {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-copy {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 20px;
+}
+.figure-container {
+    width: 100%; /* Adjust this to your desired width */
+    height: 40vw; /* Adjust this to your desired height */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.figure-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
